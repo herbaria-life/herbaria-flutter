@@ -5,24 +5,47 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Herbaria'),
+        body: Stack(children: <Widget>[
+      // Full-screen image
+      Image(
+        image: AssetImage("assets/login_full_screen_image.png"),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        fit: BoxFit.cover,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Herbaria',
-            ),
-          ],
+      // Title
+      Container(
+        margin: const EdgeInsets.only(bottom: 100.0),
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'Herbaria',
+            style: TextStyle(
+                fontSize: 90.0, fontFamily: 'BadScript', color: Colors.white),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        onPressed: () {},
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      // Container to create a fade effect
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.20),
+        ),
+      ),
+      Container(
+        margin: const EdgeInsets.only(bottom: 50.0),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: FractionallySizedBox(
+            heightFactor: 0.06,
+            widthFactor: 0.8,
+            child: ElevatedButton(
+              child: Text('Sign-in with Google',
+                  style: TextStyle(color: Colors.white)),
+              onPressed: () {},
+            ),
+          ),
+        ),
+      ),
+    ]));
   }
 }
