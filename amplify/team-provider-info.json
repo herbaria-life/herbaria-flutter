@@ -10,6 +10,11 @@
       "StackName": "amplify-herbaria-dev-165818",
       "StackId": "arn:aws:cloudformation:eu-central-1:202978184720:stack/amplify-herbaria-dev-165818/ed8cac10-88cb-11eb-baea-0aa1bf476eda",
       "AmplifyAppId": "dkuq1w6ru3wq4"
+    },
+    "categories": {
+      "auth": {
+        "herbaria076aed6e": {}
+      }
     }
   }
 }
