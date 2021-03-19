@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-herbaria-dev-165818-authRole",
+      "UnauthRoleArn": "arn:aws:iam::202978184720:role/amplify-herbaria-dev-165818-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::202978184720:role/amplify-herbaria-dev-165818-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-herbaria-dev-165818-deployment",
+      "UnauthRoleName": "amplify-herbaria-dev-165818-unauthRole",
+      "StackName": "amplify-herbaria-dev-165818",
+      "StackId": "arn:aws:cloudformation:eu-central-1:202978184720:stack/amplify-herbaria-dev-165818/ed8cac10-88cb-11eb-baea-0aa1bf476eda",
+      "AmplifyAppId": "dkuq1w6ru3wq4"
+    }
+  }
+}
