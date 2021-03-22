@@ -16,7 +16,10 @@ class HerbariaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => LoginPage(),
+      },
     );
   }
 }
