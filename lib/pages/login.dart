@@ -6,7 +6,6 @@ import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 
 // LoginPage allows users to access via Google Authentication
 class LoginPage extends StatelessWidget {
-
   Future<void> login() async {
     Logger logger = Logger();
     try {
