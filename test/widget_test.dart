@@ -13,7 +13,8 @@ import 'package:herbaria/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(HerbariaApp());
+    // TODO: verify that an image and a button are present
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
