@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
         body: Stack(children: <Widget>[
       // Full-screen image
       Image(
-        image: AssetImage("assets/login_full_screen_image.png"),
+        image: AssetImage("assets/images/login_full_screen.png"),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         fit: BoxFit.cover,
