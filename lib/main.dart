@@ -2,8 +2,8 @@ import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import 'pages/home.dart';
-import 'pages/login.dart';
+import 'screens/home.dart';
+import 'screens/login.dart';
 import 'helpers/amplify.dart';
 import 'settings.dart' as Herbaria;
 
