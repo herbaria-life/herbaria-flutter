@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+import '../logger.dart';
 import '../theme/colors.dart';
-import '../settings.dart' as Herbaria;
+
+final log = getLogger("HomePage");
 
 // HomePage
 class HomePage extends StatelessWidget {
-  Future<void> logout() {
-    Herbaria.logger.d("Button pushed!");
+  Future<void> logout() async {
+    log.d("Button pushed!");
   }
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       // This is handled by the search bar itself.
       resizeToAvoidBottomInset: false,
@@ -56,8 +55,10 @@ class HomePage extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.center,
                           child: Text(plantNames[index],
-                              style:
-                                  TextStyle(color: Colors.white, fontFamily: 'BadScript', fontSize: 48)),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'BadScript',
+                                  fontSize: 48)),
                         ),
                       ),
                       Ink.image(

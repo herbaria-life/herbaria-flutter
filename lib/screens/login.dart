@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:amplify_flutter/amplify.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 
-import '../settings.dart' as Herbaria;
+import '../logger.dart';
+
+final log = getLogger("LoginPage");
 
 // LoginPage allows users to access via Google Authentication
 class LoginPage extends StatelessWidget {
@@ -11,7 +13,7 @@ class LoginPage extends StatelessWidget {
     try {
       await Amplify.Auth.signInWithWebUI(provider: AuthProvider.google);
     } on AmplifyException catch (e) {
-      Herbaria.logger.e("Authentication failed", e);
+      log.e("Authentication failed", e);
     }
   }
 

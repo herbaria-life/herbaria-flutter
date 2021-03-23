@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:amplify_flutter/amplify.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify.dart';
 
-import '../settings.dart' as Herbaria;
 import '../config/amplifyconfiguration.dart';
+import '../logger.dart';
+
+final log = getLogger('AmplifyController');
 
 // AmplifyController expects an Amplify Class that can be used during
 // authentication or any other configuration. AmplifyController abstracts
@@ -17,7 +19,7 @@ class AmplifyController {
 
   Future<bool> isLoggedIn() async {
     if (!isConfigured) {
-      Herbaria.logger.w("You must call configure() first.");
+      log.w("You must call configure() first.");
       return false;
     }
 
@@ -29,7 +31,7 @@ class AmplifyController {
   // functionality such as DataStorage, GraphQL API and Auth
   Future<void> configure() async {
     if (isConfigured) {
-      Herbaria.logger.w("Amplify configure() already called.");
+      log.w("Amplify configure() already called.");
       return;
     }
     // Add DataStore plugin with given ModelProvider
@@ -39,13 +41,13 @@ class AmplifyController {
     amplify.Hub.listen([HubChannel.Auth], (hubEvent) {
       switch (hubEvent.eventName) {
         case 'SIGNED_IN':
-          Herbaria.logger.d("Signed in!");
+          log.d("Signed in!");
           break;
         case 'SIGNED_OUT':
-          Herbaria.logger.d("Signed out!");
+          log.d("Signed out!");
           break;
         case 'SESSION_EXPIRED':
-          Herbaria.logger.d("Session Expired!");
+          log.d("Session Expired!");
           break;
       }
     });
@@ -54,10 +56,10 @@ class AmplifyController {
       await amplify.configure(amplifyconfig);
       isConfigured = true;
     } on AmplifyAlreadyConfiguredException {
-      Herbaria.logger.d(
+      log.d(
           "Tried to reconfigure Amplify; this can occur when your app restarts on Android.");
     } on AmplifyException catch (e) {
-      Herbaria.logger.e("Unable to configure Amplify", e);
+      log.e("Unable to configure Amplify", e);
     }
   }
 }
