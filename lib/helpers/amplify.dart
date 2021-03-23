@@ -4,7 +4,7 @@ import 'package:amplify_flutter/amplify.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 
 import '../settings.dart' as Herbaria;
-import '../amplifyconfiguration.dart';
+import '../config/amplifyconfiguration.dart';
 
 // AmplifyController expects an Amplify Class that can be used during
 // authentication or any other configuration. AmplifyController abstracts
