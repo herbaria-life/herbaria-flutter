@@ -23,8 +23,13 @@ class AmplifyController {
       return false;
     }
 
-    CognitoAuthSession session = await amplify.Auth.fetchAuthSession();
-    return session.isSignedIn;
+    try {
+      CognitoAuthSession session = await amplify.Auth.fetchAuthSession();
+      return session.isSignedIn;
+    } on NotAuthorizedException catch (e) {
+      log.d("User is not authenticated. Unauthenticated access is not allowed");
+      return false;
+    }
   }
 
   // Initialize Amplify library to provide AWS
@@ -58,6 +63,7 @@ class AmplifyController {
     } on AmplifyAlreadyConfiguredException {
       log.d(
           "Tried to reconfigure Amplify; this can occur when your app restarts on Android.");
+      isConfigured = true;
     } on AmplifyException catch (e) {
       log.e("Unable to configure Amplify", e);
     }
